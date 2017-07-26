@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Layout Managers</string>
+    <string name="fragment_title_grid">Grid</string>
+    <string name="fragment_title_linear">Linear</string>
+    <string name="fragment_title_staggered">Staggered</string>
+
+</resources>

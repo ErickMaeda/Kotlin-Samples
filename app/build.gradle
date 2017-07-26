@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.tecnologiafox.layoutmanagers"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$version_support_test_espresso_core", {
+        exclude group: "com.android.support", module: "support-annotations"
+    })
+    testCompile(
+            "junit:junit:$version_junit"
+    )
+    compile(
+            fileTree(dir: 'libs', include: ['*.jar']),
+            "com.android.support:appcompat-v7:$version_support_appcompatv7",
+            "com.android.support.constraint:constraint-layout:$version_support_constraintlayout",
+            "com.android.support:design:$version_support_design",
+            "org.jetbrains.kotlin:kotlin-stdlib-jre7:$version_kotlin",
+            "com.squareup.retrofit2:retrofit:$version_retrofit",
+            "com.squareup.retrofit2:converter-gson:$version_retrofit"
+    )
+    kapt(
+            "com.google.dagger:dagger-compiler:$version_dagger"
+    )
+}
+repositories {
+    mavenCentral()
+}
